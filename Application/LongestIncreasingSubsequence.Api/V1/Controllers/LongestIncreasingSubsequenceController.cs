@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using LongestIncreasingSubsequence.ApplicationServices;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -28,9 +29,17 @@ namespace LongestIncreasingSubsequence.Api.V1.Controllers
         [Route("calculate")]
         public async Task<IActionResult> Get([FromBody] NumbersModel request)
         {
-            var numbers = await _mediator.Send(new SplitNumbersCommand(request.Numbers));
-            var sequence = await _mediator.Send(new CalculateLongestIncreasingSubsequenceCommand(numbers));
-            return Ok(sequence);
+            try
+            {
+                var numbers = await _mediator.Send(new SplitNumbersCommand(request.Numbers));
+                var sequence = await _mediator.Send(new CalculateLongestIncreasingSubsequenceCommand(numbers));
+                return Ok(sequence);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Error occurred calculating the longest increasing sub sequence for input: {0}.", request.Numbers);
+                return StatusCode(500);
+            }
         }
 
     }
