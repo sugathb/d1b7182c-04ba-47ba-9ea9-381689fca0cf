@@ -73,5 +73,5 @@ public class NumbersModel
 `Githib Actions` used for continuous integration. Each time a new code is commited to `master` branch, it will build the code and run all unit tests in the solution.
 
 ### Continuous Deployment
-Each time a new code is commited/merged into the `master` branch, the deployment pipelines will be triggered. Docker container to the `Azure Container Registry` and then deployed to `Azure App Service Container`. 
+Each time a new code is commited/merged into the `master` branch, the deployment pipelines will be triggered. Docker container is pushed to the `Azure Container Registry` and then deployed to `Azure App Service Container`. 
 
