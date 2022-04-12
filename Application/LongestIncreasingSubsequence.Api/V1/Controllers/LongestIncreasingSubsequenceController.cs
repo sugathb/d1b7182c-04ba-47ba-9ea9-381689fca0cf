@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace LongestIncreasingSubsequence.Api.V1.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class LongestIncreasingSubsequenceController : ControllerBase
     {
         private readonly ILogger<LongestIncreasingSubsequenceController> _logger;
