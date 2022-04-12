@@ -56,12 +56,23 @@ https://longest-increasing-sequence.azurewebsites.net/swagger/index.html
 ### Design & Architecture
 The API is developed as an `ASP.NET Core WebAPI` that targets to .NET 5.0 with Docker support enabled.
 
-#### Unit Tests
+### Unit Tests
 `Nunit` is used to write unit tests. The tests covers all 11 test cases given in the coding challenge. 
 
-#### Continuous Integration
+### Validations
+A regular expression is used to validate the input  number of integers separated by single whitespace.
+
+```CSharp
+public class NumbersModel
+    {
+        [RegularExpression(@"^(\d+( \d+)+)", ErrorMessage = "Please enter numbers separated by single whitespace in the middle.")]
+        public string Numbers { get; set; }
+    }
+  ```
+
+### Continuous Integration
 `Githib Actions` used for continuous integration. Each time a new code is commited to 'master' branch, it will build the code and run all unit tests in the solution.
 
-#### Continuous Deployment
+### Continuous Deployment
 Each time a new code is commited/merged into the master branch, the deployment pipelines will be triggered. Docker container to the `Azure Container Registry` and then deployed to `Azure App Service Container`. 
 
