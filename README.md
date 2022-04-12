@@ -54,7 +54,7 @@ https://longest-increasing-sequence.azurewebsites.net/swagger/index.html
             Body: { "numbers": "6 1 5 9 2" }
           
 ### Design & Architecture
-The API is developed as an `ASP.NET Core WebAPI` that targets to .NET 5.0 with Docker support enabled.
+The API is developed as an `ASP.NET 5 WebAPI` that targets to .NET 5.0 with Docker support enabled.
 
 ### Unit Tests
 `Nunit` is used to write unit tests. The tests covers all 11 test cases given in the coding challenge. 
