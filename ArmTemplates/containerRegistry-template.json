@@ -11,7 +11,7 @@
         "registrySku": {
             "defaultValue": "Standard",
             "type": "String"
-        }
+        } 
     },
     "resources": [
         {
