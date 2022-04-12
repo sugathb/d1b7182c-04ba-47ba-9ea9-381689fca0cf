@@ -27,7 +27,6 @@ To calculate the longest increasing subsequence of a given string input of any n
                         longestSequenceNumber = currentSequenceNumber;
                         longestSequence.Clear();
                         longestSequence.AddRange(currentSequence);
-
                     }
 
                     currentSequenceNumber = 1;
