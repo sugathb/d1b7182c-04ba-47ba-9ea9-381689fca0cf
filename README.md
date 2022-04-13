@@ -8,8 +8,8 @@ To calculate the longest increasing subsequence of a given string input of any n
         {
             var currentSequence = new List<int>();
             var longestSequence = new List<int>();
-            var currentSequenceNumber = 0;
-            var longestSequenceNumber = 0;
+            var currentSequenceCount = 0;
+            var longestSequenceCount = 0;
             var previousNumber = int.MinValue;
 
             foreach (var number in numbers)
@@ -17,19 +17,19 @@ To calculate the longest increasing subsequence of a given string input of any n
                 if (number > previousNumber)
                 {
                     currentSequence.Add(number);
-                    currentSequenceNumber += 1;
+                    currentSequenceCount += 1;
                     previousNumber = number;
                 }
                 else
                 {
-                    if (currentSequenceNumber > longestSequenceNumber)
+                    if (currentSequenceCount > longestSequenceCount)
                     {
-                        longestSequenceNumber = currentSequenceNumber;
+                        longestSequenceCount = currentSequenceCount;
                         longestSequence.Clear();
                         longestSequence.AddRange(currentSequence);
                     }
 
-                    currentSequenceNumber = 1;
+                    currentSequenceCount = 1;
                     currentSequence.Clear();
                     currentSequence.Add(number);
                     previousNumber = number;
@@ -37,7 +37,7 @@ To calculate the longest increasing subsequence of a given string input of any n
             }
 
             //Include last number for the calculation
-            return currentSequenceNumber > longestSequenceNumber ? currentSequence : longestSequence;
+            return currentSequenceCount > longestSequenceCount ? currentSequence : longestSequence;
         }
   ```
 
